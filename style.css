@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgb(30, 255, 0);
+  pointer-events: none;
+  margin-top: -30px;
+  margin-left: -30px;
+  will-change: transform;
+  z-index: 100;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 50;
+}
+
+#hero-title {
+  font-size: 8vw;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  cursor: default;
+}
+
+#hero-title .ch {
+  display: inline-block;
+  will-change: transform;
+}
+
+#trail-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.trail-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.45s ease, transform 0.6s ease;
+}
+
+.trail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.trail-item.show {
+  opacity: 1;
+}
